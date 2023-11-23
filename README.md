@@ -6,5 +6,5 @@ Edit the following lines to your /etc/pacman.conf
 ```
 [ctOS-Repo]
 SigLevel = Optional DatabaseOptional
-Server = https://raw.githubusercontent.com/whatev33r/$repo/main/$arch
+Server = https://raw.githubusercontent.com/whatev33r/$repo/master/$arch
 ```
