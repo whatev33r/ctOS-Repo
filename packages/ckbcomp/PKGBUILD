@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Maintainer: EndeavourOS-Team <info at endeavouros.com>
+
+# Ex-Maintainer:  Nissar Chababy <funilrys at outlook dot com>
+# Ex-Maintainer:  Jeroen Bollen <jbinero at gmail dot comau>
+
+_ckbcomp_preparations() {
+    local site="https://salsa.debian.org"
+
+    url="$site/installer-team/console-setup"
+
+    local data=$(curl --fail --silent --location --max-time 10 $url/-/tags)
+    local line="$(echo "$data" | grep -E -m1 "/console-setup-[0-9\.]+\.tar\.gz")"
+    local dl="$site$(echo "$line" | sed -E -e 's|(.*\.tar\.gz).*|\1|' -e 's|.+(/installer.+)|\1|')"
+
+    pkgver="$(echo "$dl" | sed -E 's|.*/console-setup-([0-9\.]+)\.tar\.gz.*|\1|')"
+    source=("$dl")
+}
+_ckbcomp_preparations
+unset -f _ckbcomp_preparations
+
+pkgname=ckbcomp
+pkgrel=1
+pkgdesc="Compile a XKB keyboard description to a keymap suitable for loadkeys or kbdcontrol"
+arch=(any)
+license=('GPL2')
+depends=('perl')
+sha512sums=('SKIP')
+
+package() {
+    local appname=$(basename "${source[0]}"  -$pkgver.tar.gz)
+    install -Dm755 "${appname}-$pkgver/Keyboard/$pkgname"   "${pkgdir}/usr/bin/$pkgname"
+    rm -f "../${appname}-$pkgver.tar.gz"   # cleanup
+}
