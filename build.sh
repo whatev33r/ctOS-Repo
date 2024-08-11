@@ -46,8 +46,8 @@ for d in $TMPBUILD/*; do
   echo Cleaning $d..
   cd $d
   # mv pkgs
-  mv -vn *pkg.tar.zst $destiny &> /dev/null
-  mv -vn *pkg.tar.zst.sig $destiny &> /dev/null
+  mv -vf *pkg.tar.zst $destiny &> /dev/null
+  mv -vf *pkg.tar.zst.sig $destiny &> /dev/null
   cd ..
 done
 rm -rf $TMPBUILD
