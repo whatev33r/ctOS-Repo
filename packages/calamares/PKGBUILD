@@ -3,7 +3,7 @@
 # https://gitlab.manjaro.org/packages/extra/calamares/-/blob/master/PKGBUILD
 # https://gitlab.manjaro.org/packages/extra/calamares-git/-/blob/master/PKGBUILD
 
-pkgname=alci-calamares
+pkgname=calamares
 _pkgname=calamares
 pkgver=3.3.7.240514
 _pkgver=3.3.7
@@ -63,8 +63,8 @@ source=($_pkgname::git+https://github.com/calamares/calamares#commit=$_commit
 	"calamares_polkit"
 	"49-nopasswd-calamares.rules")
 
-sha256sums=('1b698e07e9a2e9a9c83d713a824a80e9fa7b9cdbe33f8d093051214aa4667f57'
-            'd6a5ce002c99586dfa0cb8621cad631f148dfd0d6d234c31643a63c585c546ee'
+sha256sums=('SKIP'
+            '4f38b84570c78d15e52c328c8af1a93d2ca57f8c8f32df2ac5fc9900699a8665'
             'c176b28007bd1c1f23d8dbb2c936fa54d0c01bacfb67290ddad597606c129df3'
             '56d85ff6bf860b9559b8c9f997ad9b1002f3fccc782073760eca505e3bddd176')
 
